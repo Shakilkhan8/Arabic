@@ -86,7 +86,6 @@ class OpenAccountChart(models.TransientModel):
 
 
 
-	@api.multi
 	def account_chart_open_window(self):
 		"""
 		Opens chart of Accounts
