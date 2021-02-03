@@ -12,14 +12,13 @@ from odoo import api, models
 class AccountChartTemplate(models.Model):
     _inherit = "account.chart.template"
     
-    @api.multi
+ 
     def generate_account(self, tax_template_ref, acc_template_ref, code_digits, company):
         account_template_account_dict = super(AccountChartTemplate, self).generate_account(tax_template_ref, acc_template_ref, code_digits, company)
         self.update_generated_account(tax_template_ref=tax_template_ref,code_digits=code_digits,
                                       company=company, importing_parent=True)
         return account_template_account_dict
-    
-    @api.multi
+
     def update_generated_account(self, tax_template_ref=[], code_digits=1, company=False,importing_parent=False):
         """ This method for generating parent accounts from templates.
 
